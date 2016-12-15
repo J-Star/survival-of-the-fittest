@@ -1,23 +1,44 @@
 # File name: main.py
 #:kivy 1.8.0
 
-#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import get_color_from_hex kivy.utils.get_color_from_hex
 
 ScreenManagement:
     transition: FadeTransition()
 	StartScreen:
 	GameScreen:
 
+<Button>:
+	color: get_color_from_hex('#e3e3e3')
+	background_color: get_color_from_hex('#89bdd3')
+	height: self.texture_size[1] + (4 * root.padding[1])
+	background_normal: "images/white_sample_background.jpg"
+	font_size: self.height - (8 * root.padding[1])
+	
 <StartScreen>:
     name: "start"
+	canvas.before:
+		Rectangle:
+            pos: self.pos
+            size: self.size
+			source: "images/main_background.jpg"
+
 	Button:
 		text: "Start Game"
+		size_hint: 0.8, 0.12
+		pos_hint: {'center_x': .5, 'center_y': .25}
 		on_release: app.root.current = "game"
-		font_size: 50
+
 			
 <GameScreen>:
     name: "game"
-	Button:
-		text: "Quit Game"
-		on_release: app.root.current = "start"
-		font_size: 50
+	padding: root.width * 0.01, root.width * 0.01
+	
+	FloatLayout:
+		Painter
+		Button:
+			text: "Quit Game"
+			size_hint: 0.8, 0.07
+			pos_hint: {'center_x': .5, 'center_y': .1}
+			on_release: app.root.current = "start"
