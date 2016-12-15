@@ -1,2 +1,2 @@
-# survival-of-the-fittest
+# Survival of the Fittest
 Game app with python and kivy
