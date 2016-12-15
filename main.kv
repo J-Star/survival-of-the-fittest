@@ -1,0 +1,23 @@
+# File name: main.py
+#:kivy 1.8.0
+
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+ScreenManagement:
+    transition: FadeTransition()
+	StartScreen:
+	GameScreen:
+
+<StartScreen>:
+    name: "start"
+	Button:
+		text: "Start Game"
+		on_release: app.root.current = "game"
+		font_size: 50
+			
+<GameScreen>:
+    name: "game"
+	Button:
+		text: "Quit Game"
+		on_release: app.root.current = "start"
+		font_size: 50
