@@ -1,11 +1,11 @@
 # File name: main.py
-#:kivy 1.8.0
+#:kivy 1.9.1
 
-#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
 #:import get_color_from_hex kivy.utils.get_color_from_hex
 
 ScreenManagement:
-    transition: FadeTransition()
+    transition: RiseInTransition()
 	StartScreen:
 	GameScreen:
 
@@ -37,6 +37,11 @@ ScreenManagement:
 	
 	FloatLayout:
 		Painter
+		Button:
+			text: "Clear"
+			size_hint: 0.3, 0.1
+			pos_hint: {'right': 0.95, 'top': 0.95}
+			on_release: root.clear_canvas()
 		Button:
 			text: "Quit Game"
 			size_hint: 0.8, 0.07
