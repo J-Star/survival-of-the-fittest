@@ -23,7 +23,7 @@ class StartScreen(Screen):
 class GameScreen(Screen):
 
     def clear_canvas(self):
-        self.children[0].children[2].canvas.clear()
+        self.ids.painter.canvas.clear()
 
 class ScreenManagement(ScreenManager):
     pass
